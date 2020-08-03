@@ -5,8 +5,8 @@
 
 #include <range/v3/view.hpp>
 #include <range/v3/action.hpp>
-#include <range/v3/istream_range.hpp>
-#include <range/v3/to_container.hpp>
+#include <range/v3/view/istream.hpp>
+#include <range/v3/range/conversion.hpp>
 
 using namespace ranges::v3;
 
@@ -22,7 +22,7 @@ void write_top_10(const Range& xs)
         // starting with 1. Zipping it with xs will give us
         // a range of pairs. The number of items in this range
         // will be the size of xs.
-        view::zip(xs, view::ints(1))
+        view::zip(xs, view::iota(1))
             | view::transform([] (const auto& pair) {
                     return std::to_string(pair.second) +
                            " " + pair.first;

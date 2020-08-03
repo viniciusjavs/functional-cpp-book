@@ -4,18 +4,20 @@
 
 #include <range/v3/view.hpp>
 #include <range/v3/action.hpp>
-#include <range/v3/istream_range.hpp>
-#include <range/v3/to_container.hpp>
+#include <range/v3/view/istream.hpp>
+#include <range/v3/range/conversion.hpp>
 
 using namespace ranges::v3;
 using namespace std::placeholders;
 
 std::string string_to_lower(const std::string &s) {
-    return s | view::transform(tolower);
+    return s | view::transform(tolower)
+             | ranges::to<std::string>;
 }
 
 std::string string_only_alnum(const std::string &s) {
-    return s | view::filter(isalnum);
+    return s | view::filter(isalnum)
+             | ranges::to<std::string>;
 }
 
 int main(int argc, char *argv[])
