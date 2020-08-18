@@ -38,7 +38,7 @@ private:
     friend ranges::v3::range_access;
     const T *m_opt_ptr;
     const T & read() const { return *m_opt_ptr; }
-    bool equal(ranges::v3::default_sentinel) const {
+    bool equal(ranges::v3::default_sentinel_t) const {
         return m_opt_ptr == nullptr;
     }
     void next() { m_opt_ptr = nullptr; }

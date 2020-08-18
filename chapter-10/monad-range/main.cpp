@@ -10,6 +10,7 @@
 #include <range/v3/view/transform.hpp>
 #include <range/v3/view/filter.hpp>
 #include <range/v3/view/join.hpp>
+#include <range/v3/view/subrange.hpp>
 
 using namespace ranges::v3;
 
@@ -38,7 +39,7 @@ decltype(auto) mbind(F&& f)
 
 auto files_in_dir(const fs::directory_entry &dir)
 {
-    return make_iterator_range(fs::directory_iterator{dir.path()},
+    return subrange(fs::directory_iterator{dir.path()},
                                fs::directory_iterator{});
 };
 
@@ -46,7 +47,7 @@ auto files_in_dir(const fs::directory_entry &dir)
 int main(int argc, char *argv[])
 {
     auto directories =
-        ranges::make_iterator_range(fs::directory_iterator{".."},
+        ranges::subrange(fs::directory_iterator{".."},
                                     fs::directory_iterator{})
             | view::filter([] (auto&& item) { return item.is_directory(); });
 
