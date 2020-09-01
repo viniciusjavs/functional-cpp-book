@@ -1,3 +1,6 @@
 [submodule "3rd-party/ericniebler/range-v3"]
 	path = 3rd-party/ericniebler/range-v3
 	url = git@github.com:ericniebler/range-v3.git
+[submodule "3rd-party/nlohmann/json"]
+	path = 3rd-party/nlohmann/json
+	url = git@github.com:nlohmann/json.git
