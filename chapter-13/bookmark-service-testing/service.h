@@ -8,7 +8,7 @@
 // We are faking the reactive stream with a range
 #include <range/v3/view/filter.hpp>
 #include <range/v3/view/transform.hpp>
-#include <range/v3/to_container.hpp>
+#include <range/v3/range/conversion.hpp>
 
 /**
  * A structure to contain a value of any type,
